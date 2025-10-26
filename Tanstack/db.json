@@ -1,0 +1,29 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "Getting Started with React 19",
+      "body": "React 19 introduces new concurrent rendering improvements and enhanced hooks for better performance and DX."
+    },
+    {
+      "id": 2, 
+      "title": "Mastering TanStack Query",
+      "body": "Learn how to use TanStack Query for efficient server state management, caching, and background data fetching."
+    },
+    {
+      "id": 3,
+      "title": "Understanding JavaScript Closures",
+      "body": "Closures allow functions to access variables from an outer scope even after that scope has closed, enabling powerful patterns."
+    },
+    {
+      "id": 4,
+      "title": "Building REST APIs with Node.js and Express",
+      "body": "A beginner-friendly guide to creating scalable REST APIs using Express.js, middleware, and routing best practices."
+    },
+    {
+      "id": 5,
+      "title": "Optimizing Frontend Performance",
+      "body": "Discover techniques like code-splitting, lazy loading, and memoization to make your React applications faster."
+    }
+  ]
+}
