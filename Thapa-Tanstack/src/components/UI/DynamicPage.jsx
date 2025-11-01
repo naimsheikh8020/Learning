@@ -7,7 +7,7 @@ const DynamicPage = () => {
   const { id } = useParams()
 
   const { data, isLoading, error } = useQuery({
-    queryKey: ["posts", id],
+    queryKey: ["post", id],
     queryFn: () => dynamicContent(id)
   });
 
@@ -16,7 +16,7 @@ const DynamicPage = () => {
 
   return (
     <div className='section-accordion'>
-      <h1>DynamicPage {id}</h1>
+      <h1>Post Id No: {id}</h1>
       <h2 className='text-3xl text-center text-white'>{data.title}</h2>
       <p>{data.body}</p>
     </div>
