@@ -9,3 +9,9 @@ export const fetchPosts = async () => {
   const { data:postData } = await api.get("/posts");
   return postData;
 };
+
+
+export const dynamicContent = async (id)=>{
+  const {data: dynamicContent} = await api.get(`/posts/${id}`)
+  return dynamicContent
+}

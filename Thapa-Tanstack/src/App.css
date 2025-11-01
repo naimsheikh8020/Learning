@@ -25,6 +25,8 @@ h1 {
   text-decoration: underline;
   font-family: "syne";
   letter-spacing: 0.1rem;
+  list-style: none;
+  list-style: none;
 }
 
 button {
