@@ -1,10 +1,13 @@
-import { keepPreviousData, useQuery } from "@tanstack/react-query";
-import { fetchPosts } from "../api/api";
+import { keepPreviousData, useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { deletePost, fetchPosts } from "../api/api";
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
 
 const FetchRQ = () => {
   const [pageNumber, setPageNumber] = useState(0)
+  
+  const queryClient = useQueryClient()
+
   const {
     data: posts = [], 
     isLoading,
@@ -19,6 +22,17 @@ const FetchRQ = () => {
     placeholderData:keepPreviousData,
   });
 
+  // Mutation Function to delete the post 
+
+  const deleteMustaion = useMutation({
+    mutationFn:(id)=> deletePost(id),
+    onSuccess: (data, id)=>{
+      queryClient.setQueryData(["posts",pageNumber],(currElem)=>{
+        return currElem?.filter((post=> post.id !==id))
+      })
+      //  queryClient.invalidateQueries(["posts"]); -> this is the best approce for delete this logice refatche the  data 
+    }
+  })
 
   if (isLoading) return <p>Loading posts...</p>;
   if (isError) return <p>Error: {error.message}</p>;
@@ -30,9 +44,11 @@ const FetchRQ = () => {
         {posts?.map((post) => (
           <li key={post.id}>
             <NavLink to={`/rq/${post.id}`}>
+            <p>{post.id}</p>
             <h3>{post.title}</h3>
             <p>{post.body}</p>
             </NavLink>
+            <button onClick={()=> deleteMustaion.mutate(post.id)}>Delete</button>
           </li>
         ))}
       </ul>

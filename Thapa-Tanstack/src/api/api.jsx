@@ -15,3 +15,7 @@ export const dynamicContent = async (id)=>{
   const {data: dynamicContent} = await api.get(`/posts/${id}`)
   return dynamicContent
 }
+
+export const deletePost = (id)=>{
+  return api.delete(`/posts/${id}`)
+} 
