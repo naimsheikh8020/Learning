@@ -1,5 +1,5 @@
 import { keepPreviousData, useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { deletePost, fetchPosts } from "../api/api";
+import { deletePost, fetchPosts, updatedPost } from "../api/api";
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
 
@@ -34,6 +34,12 @@ const FetchRQ = () => {
     }
   })
 
+  // Mutation Function to Update the post 
+
+  const updateMutation = useMutation({
+    mutationFn:(id) =>updatedPost(id),
+  })
+
   if (isLoading) return <p>Loading posts...</p>;
   if (isError) return <p>Error: {error.message}</p>;
 
@@ -49,6 +55,7 @@ const FetchRQ = () => {
             <p>{post.body}</p>
             </NavLink>
             <button onClick={()=> deleteMustaion.mutate(post.id)}>Delete</button>
+            <button onClick={()=> updateMutation.mutate(post.id)}>Update</button>
           </li>
         ))}
       </ul>

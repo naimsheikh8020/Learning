@@ -8,6 +8,7 @@ import "./App.css"
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import DynamicPage from './components/UI/DynamicPage';
+import InfinScroll from './pages/InfinScroll';
 
 
 
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
        {
         path: "/rq/:id",
         element: <DynamicPage />,
+      },
+      {
+        path: "/infinitscroll",
+        element: <InfinScroll />,
       },
      
     ],

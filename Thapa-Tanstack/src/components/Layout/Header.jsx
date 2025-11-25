@@ -9,7 +9,7 @@ const Header = () => {
           <li><NavLink to="/">Home</NavLink></li>
           <li><NavLink to="/trad">FetchOld</NavLink></li>
           <li><NavLink to="/rq">FetchRQ</NavLink></li>
-          <li><NavLink to="/infinite">InfiniteScroll</NavLink></li>
+          <li><NavLink to="/infinitscroll">InfiniteScroll</NavLink></li>
         </ul>
       </div>
     </header>
